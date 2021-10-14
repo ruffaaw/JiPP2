@@ -4,7 +4,6 @@
 #include <iostream>
 
 int main (){
-    cout << "siema" << endl;
 
 }
 
