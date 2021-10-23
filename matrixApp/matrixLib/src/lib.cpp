@@ -49,12 +49,7 @@ int **addMatrix(int **macierz_a, int **macierz_b, int ilosc_wierszy, int ilosc_k
 }
 
 int **subtractMatrix(int **macierz_a, int **macierz_b, int ilosc_wierszy, int ilosc_kolumn) {
-/*
-    int **macierz_w = NULL;
-    macierz_w = new int *[ilosc_wierszy];
-    for (int i = 0; i<ilosc_wierszy; i++)
-        macierz_w[i] = new int [ilosc_kolumn];
-*/
+
     int **macierz_w = utworz_macierz(ilosc_wierszy, ilosc_kolumn);
 
     for (int i = 0; i < ilosc_wierszy; i++) {
@@ -80,5 +75,21 @@ int **multiplyMatrix(int **macierz_a, int **macierz_b, int ilosc_wierszy_a, int 
     return macierz_w;
 }
 
+int **multiplyByScalar(int **macierz, int ilosc_wierszy,int ilosc_kolumn,int skalar){
+    int **macierz_w = utworz_macierz(ilosc_wierszy, ilosc_kolumn);
+
+    for (int i = 0; i < ilosc_wierszy; i++){
+        for (int j = 0; j < ilosc_kolumn; j++){
+            macierz_w[i][j] = macierz[i][j] * skalar;
+        }
+    }
+    return macierz_w;
+}
+
+int **transpozeMatrix(int **macierz, int ilosc_wierszy, int ilosc_kolumn){
+    int **macierz_w = utworz_macierz(ilosc_wierszy, ilosc_kolumn);
+
+
+}
 
 
