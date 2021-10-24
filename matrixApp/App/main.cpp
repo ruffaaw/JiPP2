@@ -140,8 +140,56 @@ int main(int argc, char *argv[]) {
 
         wyswietl(macierz_a, ilosc_wierszy, ilosc_kolumn);
 
+        macierz_w = transpozeMatrix(macierz_a, ilosc_wierszy,ilosc_kolumn);
+        cout << "Wynik transponowania macierzy:"<<endl;
+        wyswietl(macierz_w, ilosc_kolumn, ilosc_wierszy);
+
+        for (int i = 0; i < ilosc_wierszy; i++) {
+            delete[] macierz_a[i];
+        }
+        for (int i = 0; i < ilosc_kolumn; i++) {
+            delete[] macierz_w[i];
+        }
+        delete[] macierz_a;
+        delete[] macierz_w;
+
 
     }
+
+    if (wybor == "powerMatrix"){
+        int potega;
+        cout << "Prosze podac ilosc wierszy macierzy: ";
+        cin >> ilosc_wierszy;
+        cout << "Prosze podac ilosc kolumn macierzy: ";
+        cin >> ilosc_kolumn;
+        cout << "Prosze podac stopien potegi ";
+        cin >> potega;
+
+        macierz_a = utworz_macierz(ilosc_wierszy, ilosc_kolumn);
+
+        wypelnianie_macierzy(macierz_a, ilosc_wierszy, ilosc_kolumn);
+
+        cout << "ilosc wierszy = " << ilosc_wierszy << endl
+             << "ilosc kolumn = " << ilosc_kolumn << endl
+             << "Macierz A:" << endl;
+
+        wyswietl(macierz_a, ilosc_wierszy, ilosc_kolumn);
+
+        macierz_w = powerMatrix(macierz_a, ilosc_wierszy, ilosc_kolumn, potega);
+        cout << "Wynik potegowania macierzy:"<<endl;
+        wyswietl(macierz_w, ilosc_wierszy, ilosc_kolumn);
+
+        for (int i = 0; i < ilosc_wierszy; i++) {
+            delete[] macierz_a[i];
+            delete[] macierz_w[i];
+        }
+        delete[] macierz_a;
+        delete[] macierz_w;
+
+
+    }
+
+}
 
 
 
@@ -157,4 +205,4 @@ int main(int argc, char *argv[]) {
 
         return 0;*/
 
-}
+

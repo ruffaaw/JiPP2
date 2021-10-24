@@ -4,11 +4,6 @@
 
 using namespace std;
 
-int rozmiar_macierzy(int rozmiar){
-    cin >> rozmiar;
-    return rozmiar;
-}
-
 int **utworz_macierz(int ilosc_wierszy, int ilosc_kolumn){
     int **macierz;
     macierz = new int * [ilosc_wierszy];
@@ -19,6 +14,7 @@ int **utworz_macierz(int ilosc_wierszy, int ilosc_kolumn){
 
     return macierz;
 }
+
 void wypelnianie_macierzy(int **macierz, int ilosc_wierszy, int ilosc_kolumn){
     for (int i = 0; i < ilosc_wierszy; i++){
         for(int j = 0; j < ilosc_kolumn; j++){
@@ -87,9 +83,30 @@ int **multiplyByScalar(int **macierz, int ilosc_wierszy,int ilosc_kolumn,int ska
 }
 
 int **transpozeMatrix(int **macierz, int ilosc_wierszy, int ilosc_kolumn){
+    int **macierz_w = utworz_macierz(ilosc_kolumn, ilosc_wierszy);
+
+    for(int i = 0; i < ilosc_wierszy; i++){
+        for (int j = 0; j < ilosc_kolumn; j++){
+            macierz_w[j][i] = macierz[i][j];
+        }
+    }
+    return macierz_w;
+}
+
+int **powerMatrix(int **macierz, int ilosc_wierszy, int ilosc_kolumn, int potega){
     int **macierz_w = utworz_macierz(ilosc_wierszy, ilosc_kolumn);
+    for(int p = 1; p < potega; p++) {
+        for (int i = 0; i < ilosc_wierszy; i++) {
+            for (int j = 0; j < ilosc_kolumn; j++) {
+                int suma_iloczynow = 0;
+                for (int k = 0; k < ilosc_kolumn; k++)
+                    suma_iloczynow += (macierz[i][k] * macierz[k][j]);
+                macierz_w[i][j] = suma_iloczynow;
+            }
+        }
+    }
 
-
+    return macierz_w;
 }
 
 
