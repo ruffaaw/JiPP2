@@ -214,6 +214,96 @@ int main(int argc, char *argv[]) {
 
     }
 
+    if (wybor == "matrixIsDiagonal"){
+        bool wynik;
+
+        cout << "Prosze podac ilosc wierszy macierzy: ";
+        cin >> ilosc_wierszy;
+        cout << "Prosze podac ilosc kolumn macierzy: ";
+        cin >> ilosc_kolumn;
+
+        macierz_a = utworz_macierz(ilosc_wierszy, ilosc_kolumn);
+        wypelnianie_macierzy(macierz_a, ilosc_wierszy, ilosc_kolumn);
+
+        cout << "ilosc wierszy = " << ilosc_wierszy << endl
+             << "ilosc kolumn = " << ilosc_kolumn << endl
+             << "Macierz A:" << endl;
+
+        wyswietl(macierz_a, ilosc_wierszy, ilosc_kolumn);
+
+        wynik = matrixIsDiagonal(macierz_a, ilosc_wierszy, ilosc_kolumn);
+
+        if (wynik){
+            cout << "Podana macierz jest diagonalna" << endl;
+        }
+        else{
+            cout << "Podana macierz nie jest diagonalna" << endl;
+        }
+
+        for (int i = 0; i < ilosc_wierszy; i++) {
+            delete[] macierz_a[i];
+        }
+        delete[] macierz_a;
+    }
+
+    if(wybor == "swap"){
+        int a, b;
+        cout << "Podaj wartosc a: ";
+        cin >> a;
+        cout << "Podaj wartosc b: ";
+        cin >> b;
+
+        cout << "a = " << a << " b = " << b << endl;
+        swap(a,b);
+        cout << "a = " << a << " b = " << b << endl;
+    }
+
+    if(wybor == "sortRow"){
+        int liczba_kolumn;
+        cout << "Prosze podac rozmiar tablicy: ";
+        cin >> liczba_kolumn;
+        int *tablica = new int [liczba_kolumn];
+        cout << "Prosze podac liczby do wczytania: "<< endl;
+
+        for (int i = 0; i < liczba_kolumn; i++){
+            cin >> tablica[i];
+        }
+
+        cout << "Podane liczby: ";
+        for (int i = 0; i < liczba_kolumn; i++){
+            cout << tablica[i] << " ";
+        }
+        cout << endl << "Liczby posortowane rosnaco: ";
+        sortRow(tablica, liczba_kolumn);
+        for(int i =0; i < liczba_kolumn; i++){
+            cout << tablica[i] << " ";
+        }
+        delete[] tablica;
+    }
+
+    if (wybor == "sortRowsInMatrix"){
+        cout << "Prosze podac ilosc wierszy macierzy: ";
+        cin >> ilosc_wierszy;
+        cout << "Prosze podac ilosc kolumn macierzy: ";
+        cin >> ilosc_kolumn;
+        macierz_a = utworz_macierz(ilosc_wierszy, ilosc_kolumn);
+
+        wypelnianie_macierzy(macierz_a, ilosc_wierszy, ilosc_kolumn);
+
+        cout << "ilosc wierszy = " << ilosc_wierszy << endl
+             << "ilosc kolumn = " << ilosc_kolumn << endl
+             << "Macierz A przed posortowaniem:" << endl;
+
+        wyswietl(macierz_a, ilosc_wierszy, ilosc_kolumn);
+        sortRowsInMatrix(macierz_a, ilosc_wierszy, ilosc_kolumn);
+        cout << "Macierz A po posortowaniu:" << endl;
+        wyswietl(macierz_a, ilosc_wierszy, ilosc_kolumn);
+
+        for (int i = 0; i < ilosc_wierszy; i++) {
+            delete[] macierz_a[i];
+        }
+        delete[] macierz_a;
+    }
 }
 
 

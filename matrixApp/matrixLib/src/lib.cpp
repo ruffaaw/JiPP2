@@ -178,3 +178,35 @@ int determinantMatrix(int **macierz, int ilosc_wierszy, int ilosc_kolumn){
     }
 }
 
+bool matrixIsDiagonal(int **macierz, int ilosc_wierszy, int ilosc_kolumn){
+    for(int i = 0; i < ilosc_wierszy; i++){
+        for(int j = 0; j < ilosc_kolumn; j++){
+            if((i != j) && (macierz[i][j] != 0)){
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
+void swap(int *a, int *b){
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+void sortRow (int *tablica, int liczba_kolumn){
+    for(int i = 0; i < liczba_kolumn - 1; i++){
+        for(int j = 0; j < liczba_kolumn - 1; j++){
+            if(tablica[j] > tablica[j+1])
+                swap(tablica[j], tablica[j+1]);
+        }
+    }
+}
+
+void sortRowsInMatrix(int **macierz, int liczba_wierszy,int liczba_kolumn){
+    for(int i = 0; i < liczba_wierszy; i++){
+        sortRow(macierz[i], liczba_kolumn);
+    }
+}
+

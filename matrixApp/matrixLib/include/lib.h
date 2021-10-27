@@ -10,3 +10,7 @@ int **transpozeMatrix(int **macierz, int ilosc_wierszy, int ilosc_kolumn);
 int **powerMatrix(int **macierz, int ilosc_wierszy, int ilosc_kolumn, int potega);
 int **submatrix(int **macierz, int index_wierszy, int index_kolumn, int rozmiar_macierzy);
 int determinantMatrix(int **macierz, int ilosc_wierszy, int ilosc_kolumn);
+bool matrixIsDiagonal(int **macierz, int ilosc_wierszy, int ilosc_kolumn);
+void swap(int *a, int *b);
+void sortRow (int *tablica, int liczba_kolumn);
+void sortRowsInMatrix(int **macierz, int liczba_wierszy,int liczba_kolumn);
