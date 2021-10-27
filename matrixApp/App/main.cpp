@@ -189,20 +189,31 @@ int main(int argc, char *argv[]) {
 
     }
 
-}
+    if (wybor == "determinantMatrix"){
+        int wyznacznik;
+        cout << "Prosze podac ilosc wierszy macierzy: ";
+        cin >> ilosc_wierszy;
+        cout << "Prosze podac ilosc kolumn macierzy: ";
+        cin >> ilosc_kolumn;
 
+        macierz_a = utworz_macierz(ilosc_wierszy, ilosc_kolumn);
+        wypelnianie_macierzy(macierz_a, ilosc_wierszy, ilosc_kolumn);
 
+        cout << "ilosc wierszy = " << ilosc_wierszy << endl
+             << "ilosc kolumn = " << ilosc_kolumn << endl
+             << "Macierz A:" << endl;
 
-/*        //zwalniamy pamiec
+        wyswietl(macierz_a, ilosc_wierszy, ilosc_kolumn);
+        wyznacznik = determinantMatrix(macierz_a, ilosc_wierszy, ilosc_kolumn);
+        cout << "Wyznacznik jest rowny: " << wyznacznik << endl;
+
         for (int i = 0; i < ilosc_wierszy; i++) {
             delete[] macierz_a[i];
-            delete[] macierz_b[i];
-            delete[] macierz_w[i];
         }
         delete[] macierz_a;
-        delete[] macierz_b;
-        delete[] macierz_w;
 
-        return 0;*/
+    }
+
+}
 
 
