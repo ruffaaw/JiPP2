@@ -21,18 +21,18 @@ void help(){
     << "Ponizej znajduje sie lista funkcji oraz komendy, ktorych nalezy uzyc aby je wywolac:\n\n";
     //cout << "Dodawanie dwoch macierzy     \t\t\t\t-\tadd Matrix" << endl;
 
-    cout << tab[22] << " - " << tab[23] << endl;
-    cout << tab[0] << " - " << tab[11] << endl;
-    cout << tab[1] << " - " << tab[12] << endl;
-    cout << tab[2] << " - " << tab[13] << endl;
-    cout << tab[3] << " - " << tab[14] << endl;
-    cout << tab[4] << " - " << tab[15] << endl;
-    cout << tab[5] << " - " << tab[16] << endl;
-    cout << tab[6] << " - " << tab[17] << endl;
-    cout << tab[7] << " - " << tab[18] << endl;
-    cout << tab[8] << " - " << tab[19] << endl;
-    cout << tab[9] << " - " << tab[20] << endl;
-    cout << tab[10] << " - " << tab[21] << endl;
+    cout << tab[22] << right << setw(20) << "-" << right << setw(10) <<  tab[23] << endl;
+    cout << tab[0] << right << setw(15) << "-" << right << setw(29) <<  tab[11] << endl;
+    cout << tab[1] << right << setw(10) << "-" << right << setw(31) << tab[12] << endl;
+    cout << tab[2] << right << setw(10) << "-" << right << setw(28) << tab[13] << endl;
+    cout << tab[3] << right << setw(8) << "-" << right << setw(26) << tab[14] << endl;
+    cout << tab[4] << right << setw(9) << "-" << right << setw(28) << tab[15] << endl;
+    cout << tab[5] << right << setw(13) << "-" << right << setw(25) << tab[16] << endl;
+    cout << tab[6] << right << setw(7) << "-" << right << setw(24) << tab[17] << endl;
+    cout << tab[7] << right << setw(8) << "-" << right << setw(44) << tab[18] << endl;
+    cout << tab[8] << right << setw(20) << "-" << right << setw(37) << tab[19] << endl;
+    cout << tab[9] << right << setw(17) << "-" << right << setw(23) << tab[20] << endl;
+    cout << tab[10] << right << setw(8) << "-" << right << setw(45) << tab[21] << endl;
     cout << "Nastepnie uzytkownik wybiera typ zmiennych wartosci macierzy" << endl;
     cout << "[0]\t-\tliczby calkowite (int)\n[1]\t-\tliczby zmiennoprzecinkowe(double)"<<endl;
 
