@@ -11,7 +11,7 @@ int main(int argc, char *argv[]) {
         help();
 
 
-    } else if (sprawdzanie(wybor)) {
+    } else if (!sprawdzanie(wybor)) {
         //sprawdzanie czy komenda wprowadzona przez uzytkownika jest obslugiwana
         int typ_zmiennych;
         cout << "Prosze wybrac typ zmiennej:\n[0]\t-\tliczby calkowite(int)\n"
