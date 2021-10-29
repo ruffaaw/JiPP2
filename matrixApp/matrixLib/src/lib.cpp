@@ -34,7 +34,8 @@ void help(){
     cout << tab[9] << right << setw(17) << "-" << right << setw(23) << tab[20] << endl;
     cout << tab[10] << right << setw(8) << "-" << right << setw(45) << tab[21] << endl;
     cout << "Nastepnie uzytkownik wybiera typ zmiennych wartosci macierzy" << endl;
-    cout << "[0]\t-\tliczby calkowite (int)\n[1]\t-\tliczby zmiennoprzecinkowe(double)"<<endl;
+    cout << "[0]" << right << setw(3) << "-" << right << setw(24) <<"liczby calkowite (int)" << endl;
+    cout << "[1]" << right << setw(3) << "-" << right << setw(35) <<"liczby zmiennoprzecinkowe(double)" << endl;
 
 }
 
@@ -141,6 +142,7 @@ int **subtractMatrix(int **macierz_a, int **macierz_b, int ilosc_wierszy, int il
     }
     return macierz_w;
 }
+
 double **subtractMatrix(double **macierz_a, double **macierz_b, int ilosc_wierszy, int ilosc_kolumn){
 
     double **macierz_w = utworz_macierz_double(ilosc_wierszy, ilosc_kolumn);
