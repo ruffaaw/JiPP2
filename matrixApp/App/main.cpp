@@ -970,9 +970,5 @@ int main(int argc, char *argv[]) {
     }else {
         cout << "Wprowadzona komenda jest niepoprawna\n\n" << endl;
         help();
-
     }
 }
-
-
-
