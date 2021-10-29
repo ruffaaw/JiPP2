@@ -1,6 +1,6 @@
 #include<string>
 
-void help();
+void help()
 int **utworz_macierz_int(int ilosc_wierszy, int ilosc_kolumn);
 double **utworz_macierz_double(int ilosc_wierszy, int ilosc_kolumn);
 bool wypelnianie_macierzy(int **macierz, int ilosc_wierszy, int ilosc_kolumn);
