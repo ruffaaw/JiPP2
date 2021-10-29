@@ -1,24 +1,38 @@
 #include <iostream>
 #include <iomanip>
+#include <string>
 #include "../include/lib.h"
-
 using namespace std;
 
+//tablica z wszystkimi komendami do help'a
+string tab[24] = {"addMatrix", "subtractMatrix", "multiplyMatrix", "multiplyByScalar",
+                  "transpozeMatrix", "powerMatrix", "determinantMatrix",
+                  "matrixIsDiagonal", "swap", "sortRow", "sortRowsInMatrix",
+                  "Dodawanie dwoch macierzy", "Odejmowanie dwoch macierzy",
+                  "Mnozenie dwoch macierzy", "Mnozenie przez skalar",
+                  "Transponowanie macierzy", "Potegowanie macierzy", "Wyznacznik macierzy",
+                  "Sprawdzanie czy macierz jest diagonalna", "Zamiana dwoch wartosci miejscami",
+                  "Sortowanie tablicy", "Sortowanie wszystkich wierszy w macierzy",
+                  "help", "Pomoc"};
+
 void help(){
-    cout << "Kalkulator oblicza rozne rodzaje operacji na macierzach.\n"
+    cout << "Kalkulator osluguje rozne rodzaje operacji na macierzach.\n"
     << "Uzytkownik sam wybiera rozmiary oraz wartosci macierzy.\n"
     << "Ponizej znajduje sie lista funkcji oraz komendy, ktorych nalezy uzyc aby je wywolac:\n\n";
-    cout << "Dodawanie dwoch macierzy     \t\t\t\t-\tadd Matrix" << endl;
-    cout << "Odejmowanie dwoch macierzy   \t\t\t\t-\tsubtractMatrix" << endl;
-    cout << "Mnozenie dwoch macierzy   \t\t\t\t\t-\tmultiplyMatrix" << endl;
-    cout << "Mnozenie przez skalar   \t\t\t\t\t-\tmultiplyByScalar" << endl;
-    cout << "Transponowanie macierzy  \t\t\t\t\t-\ttranspozeMatrix" << endl;
-    cout << "Potegowanie macierzy     \t\t\t\t\t-\tpowerMatrix" << endl;
-    cout << "Wyznacznik macierzy   \t\t\t\t\t\t-\tdeterminantMatrix" << endl;
-    cout << "Sprawdzanie czy macierz jest diagonalna\t\t-\tmatrixIsDiagonal" << endl;
-    cout << "Zamiana dwoch wartosci miejscami\t\t\t-\tswap" << endl;
-    cout << "Sortowanie tablicy\t\t\t\t\t\t\t-\tsortRow" << endl;
-    cout << "Sortowanie wszystkich wierszy w macierzy\t-\tsortRowsInMatrix" << endl << endl;
+    //cout << "Dodawanie dwoch macierzy     \t\t\t\t-\tadd Matrix" << endl;
+
+    cout << tab[22] << " - " << tab[23] << endl;
+    cout << tab[0] << " - " << tab[11] << endl;
+    cout << tab[1] << " - " << tab[12] << endl;
+    cout << tab[2] << " - " << tab[13] << endl;
+    cout << tab[3] << " - " << tab[14] << endl;
+    cout << tab[4] << " - " << tab[15] << endl;
+    cout << tab[5] << " - " << tab[16] << endl;
+    cout << tab[6] << " - " << tab[17] << endl;
+    cout << tab[7] << " - " << tab[18] << endl;
+    cout << tab[8] << " - " << tab[19] << endl;
+    cout << tab[9] << " - " << tab[20] << endl;
+    cout << tab[10] << " - " << tab[21] << endl;
     cout << "Nastepnie uzytkownik wybiera typ zmiennych wartosci macierzy" << endl;
     cout << "[0]\t-\tliczby calkowite (int)\n[1]\t-\tliczby zmiennoprzecinkowe(double)"<<endl;
 
@@ -49,6 +63,7 @@ double **utworz_macierz_double(int ilosc_wierszy, int ilosc_kolumn){
 bool wypelnianie_macierzy(int **macierz, int ilosc_wierszy, int ilosc_kolumn){
     for (int i = 0; i < ilosc_wierszy; i++){
         for(int j = 0; j < ilosc_kolumn; j++){
+            cout << "[" << i << "]" << "[" << j << "]-";
             if(!(cin >> macierz[i][j])){
                 //zabezpieczenie przed wprowadzeniem tekstu zamiast liczby
                 cout << "Wprowadzono nieprawidlowe znaki\n" <<endl;
@@ -62,6 +77,7 @@ bool wypelnianie_macierzy(int **macierz, int ilosc_wierszy, int ilosc_kolumn){
 bool wypelnianie_macierzy(double **macierz, int ilosc_wierszy, int ilosc_kolumn){
     for (int i = 0; i < ilosc_wierszy; i++){
         for(int j = 0; j < ilosc_kolumn; j++){
+            cout << "[" << i << "]" << "[" << j << "]-";
             if(!(cin >> macierz[i][j])){
                 //zabezpieczenie przed wprowadzeniem tekstu zamiast liczby
                 cout << "Wprowadzono nieprawidlowe znaki\n" <<endl;
@@ -156,7 +172,7 @@ double **multiplyMatrix(double **macierz_a, double **macierz_b, int ilosc_wiersz
 
     for (int i = 0; i < ilosc_wierszy_a; i++){
         for(int j = 0; j < ilosc_kolumn_b; j++){
-            int suma_iloczynow = 0;
+            double suma_iloczynow = 0;
             for (int k = 0; k < ilosc_kolumn_a; k++)
                 suma_iloczynow += (macierz_a[i][k] * macierz_b[k][j]);
             macierz_w[i][j] = suma_iloczynow;
@@ -342,7 +358,7 @@ double determinantMatrix(double **macierz, int ilosc_wierszy, int ilosc_kolumn){
         return (macierz[0][0] * macierz[1][1])-(macierz[0][1] * macierz[1][0]);
     }
     else{
-        int suma = 0;
+        double suma = 0;
         int znak = 1;
         double **pod_macierz;
 
@@ -386,7 +402,7 @@ void swap(int *a, int *b){
 }
 
 void swap(double *a, double *b){
-    int temp = *a;
+    double temp = *a;
     *a = *b;
     *b = temp;
 }
@@ -420,7 +436,6 @@ void sortRowsInMatrix(double **macierz, int liczba_wierszy,int liczba_kolumn){
         sortRow(macierz[i], liczba_kolumn);
     }
 }
-
 
 bool sprawdzanie(string komendy){
 

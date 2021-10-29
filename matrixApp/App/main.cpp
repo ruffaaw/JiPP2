@@ -1,7 +1,6 @@
 #include <iostream>
 #include "../matrixLib/include/lib.h"
 #include <string>
-#include <iomanip>
 
 using namespace std;
 
@@ -10,6 +9,8 @@ int main(int argc, char *argv[]) {
 
     if (wybor == "help") {
         help();
+
+
     } else if (sprawdzanie(wybor)) {
         //sprawdzanie czy komenda wprowadzona przez uzytkownika jest obslugiwana
         int typ_zmiennych;
@@ -46,6 +47,7 @@ int main(int argc, char *argv[]) {
                 macierz_b = utworz_macierz_int(ilosc_wierszy, ilosc_kolumn);
 
                 //wypelnianie macierzy, zabezpieczenie przed wprowadzeniem tekstu zamiast liczby
+                cout << "Prosze wprowadzic wartosci macierzy A:" << endl;
                 if (!wypelnianie_macierzy(macierz_a, ilosc_wierszy, ilosc_kolumn)) {
                     //zakonczenie i delokacja pamieci w razie podania tekstu zamiast liczby
                     for (int i = 0; i < ilosc_wierszy; i++) {
@@ -56,6 +58,7 @@ int main(int argc, char *argv[]) {
                     delete[] macierz_b;
                     return 0;
                 }
+                cout << "Prosze wprowadzic wartosci macierzy B:" << endl;
                 if (!wypelnianie_macierzy(macierz_b, ilosc_wierszy, ilosc_kolumn)) {
                     //zakonczenie i delokacja pamieci w razie podania tekstu zamiast liczby
                     for (int i = 0; i < ilosc_wierszy; i++) {
@@ -80,6 +83,7 @@ int main(int argc, char *argv[]) {
                     macierz_w = addMatrix(macierz_a, macierz_b, ilosc_wierszy, ilosc_kolumn);
                     cout << "wynik dodawania: " << endl;
                     wyswietl(macierz_w, ilosc_wierszy, ilosc_kolumn);
+
                 } else if (wybor == "subtractMatrix") {
                     macierz_w = subtractMatrix(macierz_a, macierz_b, ilosc_wierszy, ilosc_kolumn);
                     cout << "wynik odejmowania" << endl;
@@ -94,8 +98,10 @@ int main(int argc, char *argv[]) {
                 delete[] macierz_a;
                 delete[] macierz_b;
                 delete[] macierz_w;
+
+
             } else if (wybor == "multiplyMatrix") {
-                int **macierz_a, **macierz_b, **macierz_w, ilosc_wierszy, ilosc_kolumn;
+                int **macierz_a, **macierz_b, **macierz_w;
                 int ilosc_wierszy_a, ilosc_kolumn_a, ilosc_kolumn_b;
                 cout << "Prosze podac ilosc wierszy macierzy A: ";
                 if (!(cin >> ilosc_wierszy_a)) {
@@ -120,6 +126,7 @@ int main(int argc, char *argv[]) {
                 macierz_a = utworz_macierz_int(ilosc_wierszy_a, ilosc_kolumn_a);
                 macierz_b = utworz_macierz_int(ilosc_kolumn_a, ilosc_kolumn_b);
 
+                cout << "Prosze wprowadzic wartosci macierzy A:" << endl;
                 if (!wypelnianie_macierzy(macierz_a, ilosc_wierszy_a, ilosc_kolumn_a)) {
                     for (int i = 0; i < ilosc_wierszy_a; i++) {
                         delete[] macierz_a[i];
@@ -129,6 +136,7 @@ int main(int argc, char *argv[]) {
                     delete[] macierz_b;
                     return 0;
                 }
+                cout << "Prosze wprowadzic wartosci macierzy B:" << endl;
                 if (!wypelnianie_macierzy(macierz_b, ilosc_kolumn_a, ilosc_kolumn_b)) {
                     for (int i = 0; i < ilosc_wierszy_a; i++) {
                         delete[] macierz_a[i];
@@ -157,6 +165,7 @@ int main(int argc, char *argv[]) {
                 delete[] macierz_b;
                 delete[] macierz_w;
 
+
             } else if (wybor == "multiplyByScalar") {
                 int **macierz_a, **macierz_w, ilosc_wierszy, ilosc_kolumn, skalar;
                 cout << "Prosze podac ilosc wierszy macierzy: ";
@@ -180,6 +189,7 @@ int main(int argc, char *argv[]) {
 
                 macierz_a = utworz_macierz_int(ilosc_wierszy, ilosc_kolumn);
 
+                cout << "Prosze wprowadzic wartosci macierzy A:" << endl;
                 if (!wypelnianie_macierzy(macierz_a, ilosc_wierszy, ilosc_kolumn)) {
                     for (int i = 0; i < ilosc_wierszy; i++) {
                         delete[] macierz_a[i];
@@ -205,6 +215,7 @@ int main(int argc, char *argv[]) {
                 delete[] macierz_a;
                 delete[] macierz_w;
 
+
             } else if (wybor == "transpozeMatrix") {
                 int **macierz_a, **macierz_w, ilosc_wierszy, ilosc_kolumn;
                 cout << "Prosze podac ilosc wierszy macierzy: ";
@@ -222,6 +233,7 @@ int main(int argc, char *argv[]) {
 
                 macierz_a = utworz_macierz_int(ilosc_wierszy, ilosc_kolumn);
 
+                cout << "Prosze wprowadzic wartosci macierzy A:" << endl;
                 if (!wypelnianie_macierzy(macierz_a, ilosc_wierszy, ilosc_kolumn)) {
                     for (int i = 0; i < ilosc_wierszy; i++) {
                         delete[] macierz_a[i];
@@ -248,6 +260,8 @@ int main(int argc, char *argv[]) {
                 }
                 delete[] macierz_a;
                 delete[] macierz_w;
+
+
             } else if (wybor == "powerMatrix") {
                 int **macierz_a, **macierz_w, ilosc_wierszy, ilosc_kolumn, potega;
                 cout << "Prosze podac ilosc wierszy macierzy: ";
@@ -271,6 +285,7 @@ int main(int argc, char *argv[]) {
 
                 macierz_a = utworz_macierz_int(ilosc_wierszy, ilosc_kolumn);
 
+                cout << "Prosze wprowadzic wartosci macierzy A:" << endl;
                 if (!wypelnianie_macierzy(macierz_a, ilosc_wierszy, ilosc_kolumn)) {
                     for (int i = 0; i < ilosc_wierszy; i++) {
                         delete[] macierz_a[i];
@@ -295,6 +310,8 @@ int main(int argc, char *argv[]) {
                 }
                 delete[] macierz_a;
                 delete[] macierz_w;
+
+
             } else if (wybor == "determinantMatrix") {
                 int **macierz_a, ilosc_wierszy, ilosc_kolumn, wyznacznik;
                 cout << "Prosze podac ilosc wierszy macierzy: ";
@@ -311,6 +328,7 @@ int main(int argc, char *argv[]) {
                 }
 
                 macierz_a = utworz_macierz_int(ilosc_wierszy, ilosc_kolumn);
+                cout << "Prosze wprowadzic wartosci macierzy A:" << endl;
                 if (!wypelnianie_macierzy(macierz_a, ilosc_wierszy, ilosc_kolumn)) {
                     for (int i = 0; i < ilosc_wierszy; i++) {
                         delete[] macierz_a[i];
@@ -331,6 +349,8 @@ int main(int argc, char *argv[]) {
                     delete[] macierz_a[i];
                 }
                 delete[] macierz_a;
+
+
             } else if (wybor == "matrixIsDiagonal") {
                 bool wynik;
                 int **macierz_a, ilosc_wierszy, ilosc_kolumn;
@@ -349,6 +369,7 @@ int main(int argc, char *argv[]) {
                 }
 
                 macierz_a = utworz_macierz_int(ilosc_wierszy, ilosc_kolumn);
+                cout << "Prosze wprowadzic wartosci macierzy A:" << endl;
                 if (!wypelnianie_macierzy(macierz_a, ilosc_wierszy, ilosc_kolumn)) {
                     for (int i = 0; i < ilosc_wierszy; i++) {
                         delete[] macierz_a[i];
@@ -375,6 +396,8 @@ int main(int argc, char *argv[]) {
                     delete[] macierz_a[i];
                 }
                 delete[] macierz_a;
+
+
             } else if (wybor == "swap") {
                 int a, b;
                 cout << "Podaj wartosc a: ";
@@ -393,6 +416,8 @@ int main(int argc, char *argv[]) {
                 cout << "a = " << a << " b = " << b << endl;
                 swap(a, b);
                 cout << "a = " << a << " b = " << b << endl;
+
+
             } else if (wybor == "sortRow") {
                 int liczba_kolumn;
                 cout << "Prosze podac rozmiar tablicy: ";
@@ -422,6 +447,8 @@ int main(int argc, char *argv[]) {
                     cout << tablica[i] << " ";
                 }
                 delete[] tablica;
+
+
             } else if (wybor == "sortRowsInMatrix") {
                 int **macierz_a, ilosc_wierszy, ilosc_kolumn;
                 cout << "Prosze podac ilosc wierszy macierzy: ";
@@ -438,6 +465,7 @@ int main(int argc, char *argv[]) {
                 }
                 macierz_a = utworz_macierz_int(ilosc_wierszy, ilosc_kolumn);
 
+                cout << "Prosze wprowadzic wartosci macierzy A:" << endl;
                 if (!wypelnianie_macierzy(macierz_a, ilosc_wierszy, ilosc_kolumn)) {
                     for (int i = 0; i < ilosc_wierszy; i++) {
                         delete[] macierz_a[i];
@@ -460,6 +488,8 @@ int main(int argc, char *argv[]) {
                 }
                 delete[] macierz_a;
             }
+
+
         } else if (typ_zmiennych == 1) {
             if (wybor == "addMatrix" || wybor == "subtractMatrix") {
                 double **macierz_a, **macierz_b, **macierz_w;
@@ -484,6 +514,7 @@ int main(int argc, char *argv[]) {
                 macierz_b = utworz_macierz_double(ilosc_wierszy, ilosc_kolumn);
 
                 //wypelnianie macierzy, zabezpieczenie przed wprowadzeniem tekstu zamiast liczby
+                cout << "Prosze wprowadzic wartosci macierzy A:" << endl;
                 if (!wypelnianie_macierzy(macierz_a, ilosc_wierszy, ilosc_kolumn)) {
                     //zakonczenie i delokacja pamieci w razie podania tekstu zamiast liczby
                     for (int i = 0; i < ilosc_wierszy; i++) {
@@ -494,6 +525,7 @@ int main(int argc, char *argv[]) {
                     delete[] macierz_b;
                     return 0;
                 }
+                cout << "Prosze wprowadzic wartosci macierzy B:" << endl;
                 if (!wypelnianie_macierzy(macierz_b, ilosc_wierszy, ilosc_kolumn)) {
                     //zakonczenie i delokacja pamieci w razie podania tekstu zamiast liczby
                     for (int i = 0; i < ilosc_wierszy; i++) {
@@ -518,6 +550,8 @@ int main(int argc, char *argv[]) {
                     macierz_w = addMatrix(macierz_a, macierz_b, ilosc_wierszy, ilosc_kolumn);
                     cout << "wynik dodawania: " << endl;
                     wyswietl(macierz_w, ilosc_wierszy, ilosc_kolumn);
+
+
                 } else if (wybor == "subtractMatrix") {
                     macierz_w = subtractMatrix(macierz_a, macierz_b, ilosc_wierszy, ilosc_kolumn);
                     cout << "wynik odejmowania" << endl;
@@ -532,6 +566,8 @@ int main(int argc, char *argv[]) {
                 delete[] macierz_a;
                 delete[] macierz_b;
                 delete[] macierz_w;
+
+
             } else if (wybor == "multiplyMatrix") {
                 double **macierz_a, **macierz_b, **macierz_w;
                 int ilosc_wierszy_a, ilosc_kolumn_a, ilosc_kolumn_b;
@@ -558,6 +594,7 @@ int main(int argc, char *argv[]) {
                 macierz_a = utworz_macierz_double(ilosc_wierszy_a, ilosc_kolumn_a);
                 macierz_b = utworz_macierz_double(ilosc_kolumn_a, ilosc_kolumn_b);
 
+                cout << "Prosze wprowadzic wartosci macierzy A:" << endl;
                 if (!wypelnianie_macierzy(macierz_a, ilosc_wierszy_a, ilosc_kolumn_a)) {
                     for (int i = 0; i < ilosc_wierszy_a; i++) {
                         delete[] macierz_a[i];
@@ -567,6 +604,7 @@ int main(int argc, char *argv[]) {
                     delete[] macierz_b;
                     return 0;
                 }
+                cout << "Prosze wprowadzic wartosci macierzy B:" << endl;
                 if (!wypelnianie_macierzy(macierz_b, ilosc_kolumn_a, ilosc_kolumn_b)) {
                     for (int i = 0; i < ilosc_wierszy_a; i++) {
                         delete[] macierz_a[i];
@@ -595,6 +633,7 @@ int main(int argc, char *argv[]) {
                 delete[] macierz_b;
                 delete[] macierz_w;
 
+
             } else if (wybor == "multiplyByScalar") {
                 double **macierz_a, **macierz_w, skalar;
                 int ilosc_wierszy, ilosc_kolumn;
@@ -620,6 +659,7 @@ int main(int argc, char *argv[]) {
 
                 macierz_a = utworz_macierz_double(ilosc_wierszy, ilosc_kolumn);
 
+                cout << "Prosze wprowadzic wartosci macierzy A:" << endl;
                 if (!wypelnianie_macierzy(macierz_a, ilosc_wierszy, ilosc_kolumn)) {
                     for (int i = 0; i < ilosc_wierszy; i++) {
                         delete[] macierz_a[i];
@@ -645,6 +685,7 @@ int main(int argc, char *argv[]) {
                 delete[] macierz_a;
                 delete[] macierz_w;
 
+
             } else if (wybor == "transpozeMatrix") {
                 double **macierz_a, **macierz_w;
                 int ilosc_wierszy, ilosc_kolumn;
@@ -663,6 +704,7 @@ int main(int argc, char *argv[]) {
 
                 macierz_a = utworz_macierz_double(ilosc_wierszy, ilosc_kolumn);
 
+                cout << "Prosze wprowadzic wartosci macierzy A:" << endl;
                 if (!wypelnianie_macierzy(macierz_a, ilosc_wierszy, ilosc_kolumn)) {
                     for (int i = 0; i < ilosc_wierszy; i++) {
                         delete[] macierz_a[i];
@@ -689,9 +731,11 @@ int main(int argc, char *argv[]) {
                 }
                 delete[] macierz_a;
                 delete[] macierz_w;
+
+
             } else if (wybor == "powerMatrix") {
-                double **macierz_a, **macierz_w;
-                int ilosc_wierszy, ilosc_kolumn, potega;
+                double **macierz_a, **macierz_w, potega;
+                int ilosc_wierszy, ilosc_kolumn;
                 cout << "Prosze podac ilosc wierszy macierzy: ";
                 if (!(cin >> ilosc_wierszy)) {
                     cout << "\nWprowadzono nieprawidlowe znaki\n" << endl;
@@ -713,6 +757,7 @@ int main(int argc, char *argv[]) {
 
                 macierz_a = utworz_macierz_double(ilosc_wierszy, ilosc_kolumn);
 
+                cout << "Prosze wprowadzic wartosci macierzy A:" << endl;
                 if (!wypelnianie_macierzy(macierz_a, ilosc_wierszy, ilosc_kolumn)) {
                     for (int i = 0; i < ilosc_wierszy; i++) {
                         delete[] macierz_a[i];
@@ -737,9 +782,11 @@ int main(int argc, char *argv[]) {
                 }
                 delete[] macierz_a;
                 delete[] macierz_w;
+
+
             } else if (wybor == "determinantMatrix") {
-                double **macierz_a;
-                int ilosc_wierszy, ilosc_kolumn, wyznacznik;
+                double **macierz_a, wyznacznik;
+                int ilosc_wierszy, ilosc_kolumn;
                 cout << "Prosze podac ilosc wierszy macierzy: ";
                 if (!(cin >> ilosc_wierszy)) {
                     cout << "\nWprowadzono nieprawidlowe znaki\n" << endl;
@@ -754,6 +801,7 @@ int main(int argc, char *argv[]) {
                 }
 
                 macierz_a = utworz_macierz_double(ilosc_wierszy, ilosc_kolumn);
+                cout << "Prosze wprowadzic wartosci macierzy A:" << endl;
                 if (!wypelnianie_macierzy(macierz_a, ilosc_wierszy, ilosc_kolumn)) {
                     for (int i = 0; i < ilosc_wierszy; i++) {
                         delete[] macierz_a[i];
@@ -774,6 +822,8 @@ int main(int argc, char *argv[]) {
                     delete[] macierz_a[i];
                 }
                 delete[] macierz_a;
+
+
             } else if (wybor == "matrixIsDiagonal") {
                 bool wynik;
                 double **macierz_a;
@@ -793,6 +843,7 @@ int main(int argc, char *argv[]) {
                 }
 
                 macierz_a = utworz_macierz_double(ilosc_wierszy, ilosc_kolumn);
+                cout << "Prosze wprowadzic wartosci macierzy A:" << endl;
                 if (!wypelnianie_macierzy(macierz_a, ilosc_wierszy, ilosc_kolumn)) {
                     for (int i = 0; i < ilosc_wierszy; i++) {
                         delete[] macierz_a[i];
@@ -819,6 +870,8 @@ int main(int argc, char *argv[]) {
                     delete[] macierz_a[i];
                 }
                 delete[] macierz_a;
+
+
             } else if (wybor == "swap") {
                 double a, b;
                 cout << "Podaj wartosc a: ";
@@ -837,6 +890,8 @@ int main(int argc, char *argv[]) {
                 cout << "a = " << a << " b = " << b << endl;
                 swap(a, b);
                 cout << "a = " << a << " b = " << b << endl;
+
+
             } else if (wybor == "sortRow") {
                 int liczba_kolumn;
                 cout << "Prosze podac rozmiar tablicy: ";
@@ -866,6 +921,8 @@ int main(int argc, char *argv[]) {
                     cout << tablica[i] << " ";
                 }
                 delete[] tablica;
+
+
             } else if (wybor == "sortRowsInMatrix") {
                 double **macierz_a;
                 int ilosc_wierszy, ilosc_kolumn;
@@ -883,6 +940,7 @@ int main(int argc, char *argv[]) {
                 }
                 macierz_a = utworz_macierz_double(ilosc_wierszy, ilosc_kolumn);
 
+                cout << "Prosze wprowadzic wartosci macierzy A:" << endl;
                 if (!wypelnianie_macierzy(macierz_a, ilosc_wierszy, ilosc_kolumn)) {
                     for (int i = 0; i < ilosc_wierszy; i++) {
                         delete[] macierz_a[i];

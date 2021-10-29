@@ -1,3 +1,4 @@
+#include<string>
 
 void help();
 int **utworz_macierz_int(int ilosc_wierszy, int ilosc_kolumn);
