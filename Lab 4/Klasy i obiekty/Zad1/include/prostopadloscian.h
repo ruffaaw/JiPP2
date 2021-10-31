@@ -1,5 +1,5 @@
-#ifndef SAMOCHOD_PROSTOPADLOSCIAN_H
-#define SAMOCHOD_PROSTOPADLOSCIAN_H
+#ifndef PROSTOPADLOSCIAN_H
+#define PROSTOPADLOSCIAN_H
 
 class Prostopadloscian{
     int a, b, h;
